@@ -1,0 +1,24 @@
+# Compiled class file
+#.class java
+
+### VS CODE ###
+
+.vscode/
+
+# compiled class file
+*.class
+*.jar
+*.log
+
+#other file exclusion
+.DS_Store
+*.iml
+
+# Build Folders exclusion
+
+.idea/
+target/
+bin/
+out/
+build/
+dist/

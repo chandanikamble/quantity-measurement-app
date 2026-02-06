@@ -1,24 +1,39 @@
-# Compiled class file
-#.class java
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
 
-### VS CODE ###
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
 
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
 .vscode/
 
-# compiled class file
-*.class
-*.jar
-*.log
-
-#other file exclusion
+### Mac OS ###
 .DS_Store
-*.iml
-
-# Build Folders exclusion
-
-.idea/
-target/
-bin/
-out/
-build/
-dist/
+>>>>>>> 506651e (test cases add)

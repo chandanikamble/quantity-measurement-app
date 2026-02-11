@@ -2,10 +2,6 @@ package org.example;
 
 public class QuantityMeasurementApp{
 
-//    public static boolean demonstrateLengthEquality(){
-//
-//    }
-
     public static void demonstrateFeetEquality(){
         Length f1 = new Length(1.0, Length.LengthUnit.FEET);
         Length f2 = new Length(1.0, Length.LengthUnit.FEET);
@@ -21,7 +17,7 @@ public class QuantityMeasurementApp{
     }
 
     public static void demonstrateFeetInchesComparison(){
-        Length feet = new Length(3.0, Length.LengthUnit.FEET);
+        Length feet = new Length(2.0, Length.LengthUnit.FEET);
         Length inches = new Length(24.0, Length.LengthUnit.INCHES);
         boolean result = feet.equals(inches);
         System.out.println("Are Lengths equals :" + result);

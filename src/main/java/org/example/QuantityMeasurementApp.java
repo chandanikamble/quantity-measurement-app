@@ -2,10 +2,6 @@ package org.example;
 
 public class QuantityMeasurementApp{
 
-//    public static boolean demonstrateLengthEquality(){
-//
-//    }
-
     public static void demonstrateFeetEquality(){
         Length f1 = new Length(1.0, Length.LengthUnit.FEET);
         Length f2 = new Length(1.0, Length.LengthUnit.FEET);
@@ -33,3 +29,29 @@ public class QuantityMeasurementApp{
         demonstrateFeetInchesComparison();
     }
 }
+
+
+
+//public class QuantityMeasurementApp {
+//
+//    public static void demonstrateEquality(
+//            double value1, Length.LengthUnit unit1,
+//            double value2, Length.LengthUnit unit2) {
+//
+//        Length l1 = new Length(value1, unit1);
+//        Length l2 = new Length(value2, unit2);
+//
+//        System.out.println(
+//                value1 + " " + unit1 + " == " +
+//                        value2 + " " + unit2 + " : " +
+//                        l1.equals(l2)
+//        );
+//    }
+//
+//    public static void main(String[] args) {
+//        demonstrateEquality(1.0, Length.LengthUnit.FEET, 12.0, Length.LengthUnit.INCHES);
+//        demonstrateEquality(1.0, Length.LengthUnit.YARDS, 36.0, Length.LengthUnit.INCHES);
+//        demonstrateEquality(30.48, Length.LengthUnit.CENTIMETERS, 1.0, Length.LengthUnit.FEET);
+//        demonstrateEquality(3.0, Length.LengthUnit.FEET, 1.0, Length.LengthUnit.YARDS);
+//    }
+//}

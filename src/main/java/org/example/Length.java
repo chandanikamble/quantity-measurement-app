@@ -2,7 +2,7 @@ package org.example;
 
 public class Length {
     private double value;
-    private LengthUnit unit;
+    public static LengthUnit unit;
 
     public enum LengthUnit{
         FEET(12.0),

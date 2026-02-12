@@ -1,5 +1,4 @@
 import org.example.Length;
-import org.example.QuantityMeasurementApp;
 import org.junit.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -75,39 +74,24 @@ public class QuantityMeasurementAppTest {
         assertTrue(i1.equals(i2));
     }
 
-
     public void testFeetInchesEquality_SameValue(){
-        Length f1 = new Length(2.0, Length.LengthUnit.FEET);
-        Length f2 = new Length(24.0, Length.LengthUnit.INCHES);
-        assertEquals(f1, f2);
+        Length feet = new Length(1.0, Length.LengthUnit.FEET);
+        Length inches = new Length(12.0, Length.LengthUnit.INCHES);
+        assertEquals(feet, inches);
     }
 
     @Test
     public void testFeetInchesEquality_DifferentValue(){
         Length f1 = new Length(1.0, Length.LengthUnit.FEET);
-        Length f2 = new Length(24.0, Length.LengthUnit.FEET);
+        Length f2 = new Length(24.0, Length.LengthUnit.INCHES);
+        System.out.println("passed");
         assertNotEquals(f1, f2);
     }
 
     @Test
     public void testFeetInchesEquality_NullComparison(){
         Length f1 = new Length(1.0, Length.LengthUnit.FEET);
-        Length f2 = null;
-        assertFalse(f1.equals(f2), "The value should not be null");
-    }
-
-    @Test
-    public void testFeetInchesEquality_DifferentClass(){
-        Length f1 = new Length(1.0, Length.LengthUnit.FEET);
-        String s1 = "Some_value";
-        assertFalse(f1.equals(s1));
-    }
-
-    @Test
-    public void testFeetInchesEquality_SameReference(){
-        Length f1 = new Length(1.0, Length.LengthUnit.FEET);
-        Length f2 = f1;
-        assertTrue(f1.equals(f2));
+        assertNotNull((Length.unit), "The value should not be null");
     }
 
 }

@@ -34,44 +34,44 @@ public class QuantityMeasurementAppTest {
     }
 
     @Test
-    public void testFeetEquality_SameReference(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = f1;
-//        assertTrue(f1.equals(f2));
+    public void testYardToInchesEquality_EquivalentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = new Length(36.0, Length.LengthUnit.INCHES);
+        assertEquals(L1, L2);
     }
 
     @Test
-    public void testInchesEquality_SameValue(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = new QuantityMeasurementApp.Inches(1.0);
-//        assertEquals(i1, i2);
+    public void testInchestoYardEquality_EquivalentValue(){
+        Length L1 = new Length(36.0, Length.LengthUnit.INCHES);
+        Length L2 = new Length(1.0, Length.LengthUnit.YARDS);
+        assertEquals(L1, L2);
     }
 
     @Test
-    public void testInchesEquality_DifferentValue(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = new QuantityMeasurementApp.Inches(2.0);
-//        assertNotEquals(i1, i2);
+    public void testYardToFeet_NonEquivalentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = new Length(2.0, Length.LengthUnit.FEET);
+        assertNotEquals(L1, L2);
     }
 
     @Test
-    public void testInchesEquality_NullComparison(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = null;
-//        assertFalse(i1.equals(i2), "The value should not be null");
+    public void testCentimetersToInches_EquivalentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
+        Length L2 = new Length(0.393701, Length.LengthUnit.INCHES);
+        assertEquals(L1, L2);
     }
 
     @Test
-    public void testInchesEquality_DifferentClass(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        String s1 = "Some_value";
-//        assertFalse(i1.equals(s1));
+    public void testCentimetersToFeet_NonEquivalentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
+        Length L2 = new Length(1.0, Length.LengthUnit.FEET);
+        assertNotEquals(L1, L2);
     }
-
+//10,11
     @Test
-    public void testInchesEquality_SameReference(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = i1;
-//        assertTrue(i1.equals(i2));
+    public void testEquality_YardWithNullUnit(){
+        Length L1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
+        Length L2 = new Length(1.0, Length.LengthUnit.FEET);
+        assertNotEquals(L1, L2);
     }
 }

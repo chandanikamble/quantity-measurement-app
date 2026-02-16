@@ -1,45 +1,101 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class QuantityMeasurementApp{
 
     public static void demonstrateYardFeetEquality(){
-        Length l1 = new Length(1.0, Length.LengthUnit.YARDS);
-        Length l2 = new Length(3.0, Length.LengthUnit.FEET);
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter first value: ");
+        double value1 = scanner.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit1 = scanner.next().toUpperCase();
+
+        System.out.print("Enter second value: ");
+        double value2 = scanner.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit2 = scanner.next().toUpperCase();
+
+        Length l1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length l2 = new Length(value2, Length.LengthUnit.valueOf(unit2));
         boolean result = l1.equals(l2);
-        System.out.println( 1.0 + " " + Length.LengthUnit.YARDS + " == " +
-                3.0 + " " + Length.LengthUnit.FEET + " : " + result );
+        System.out.println( result );
     }
 
     public static void demonstrateYardInchesEquality(){
-        Length l1 = new Length(1.0, Length.LengthUnit.YARDS);
-        Length l2 = new Length(36.0, Length.LengthUnit.INCHES);
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first value: ");
+        double value1 = sc.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit1 = sc.next().toUpperCase();
+
+        System.out.print("Enter second value: ");
+        double value2 = sc.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit2 = sc.next().toUpperCase();
+
+        Length l1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length l2 = new Length(value2, Length.LengthUnit.valueOf(unit2));
         boolean result = l1.equals(l2);
-        System.out.println( 1.0 + " " + Length.LengthUnit.YARDS + " == " +
-                36.0 + " " + Length.LengthUnit.INCHES + " : " + result );
+        System.out.println( result );
     }
 
     public static void demonstrateYardEquality(){
-        Length l1 = new Length(2.0, Length.LengthUnit.YARDS);
-        Length l2 = new Length( 2.0, Length.LengthUnit.YARDS);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first value: ");
+        double value1 = sc.nextDouble();
+        System.out.print("Enter Unit :");
+        String unit1 = sc.next().toUpperCase();
+
+        System.out.print("Enter second value: ");
+        double value2 = sc.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit2 = sc.next().toUpperCase();
+
+        Length l1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length l2 = new Length( value2, Length.LengthUnit.valueOf(unit2));
         boolean result = l1.equals(l2);
-        System.out.println( 2.0 + " " + Length.LengthUnit.YARDS + " == " +
-                2.0 + " " + Length.LengthUnit.YARDS + " : " + result );
+        System.out.println( result );
     }
 
     public static void demonstrateCentimetersEquality(){
-        Length l1 = new Length(2.0, Length.LengthUnit.CENTIMETERS);
-        Length l2 = new Length(2.0, Length.LengthUnit.CENTIMETERS);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first value: ");
+        double value1 = sc.nextDouble();
+        System.out.print("Enter Unit :");
+        String unit1 = sc.next().toUpperCase();
+
+        System.out.print("Enter second value: ");
+        double value2 = sc.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit2 = sc.next().toUpperCase();
+
+        Length l1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length l2 = new Length(value2, Length.LengthUnit.valueOf(unit2));
         boolean result = l1.equals(l2);
-        System.out.println( 2.0 + " " + Length.LengthUnit.CENTIMETERS + " == " +
-                2.0 + " " + Length.LengthUnit.CENTIMETERS + " : " + result );
+        System.out.println( result );
     }
 
     public static void demonstrateCMSInchesEquality(){
-        Length l1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
-        Length l2 = new Length(0.393701, Length.LengthUnit.INCHES);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter first value: ");
+        double value1 = sc.nextDouble();
+        System.out.print("Enter Unit :");
+        String unit1 = sc.next().toUpperCase();
+
+        System.out.print("Enter second value: ");
+        double value2 = sc.nextDouble();
+        System.out.print("Enter Unit : ");
+        String unit2 = sc.next().toUpperCase();
+
+        Length l1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length l2 = new Length(value2, Length.LengthUnit.valueOf(unit2));
         boolean result = l1.equals(l2);
-        System.out.println( 1.0 + " " + Length.LengthUnit.CENTIMETERS + " == " +
-                0.393701 + " " + Length.LengthUnit.INCHES + " : " + result );
+        System.out.println( result );
     }
 
     public static void main(String[] args) {

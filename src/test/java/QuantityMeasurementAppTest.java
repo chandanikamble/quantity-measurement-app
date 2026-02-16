@@ -1,3 +1,4 @@
+import org.example.Length;
 import org.example.QuantityMeasurementApp;
 import org.junit.Test;
 
@@ -5,31 +6,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class QuantityMeasurementAppTest {
     @Test
-    public void testFeetEquality_SameValue(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(1.0);
-//        assertEquals(f1, f2);
+    public void testYardEquality_SameValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = new Length(1.0, Length.LengthUnit.YARDS);
+        assertEquals(L1, L2);
     }
 
     @Test
-    public void testFeetEquality_DifferentValue(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(2.0);
-//        assertNotEquals(f1, f2);
+    public void testYardEquality_DifferentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = new Length(2.0, Length.LengthUnit.YARDS);
+        assertNotEquals(L1, L2);
     }
 
     @Test
-    public void testFeetEquality_NullComparison(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = null;
-//        assertFalse(f1.equals(f2), "The value should not be null");
+    public void testYardToFeetEquality_EquivalentValue(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = new Length(3.0, Length.LengthUnit.FEET);
+        assertEquals(L1, L2);
     }
 
     @Test
-    public void testFeetEquality_DifferentClass(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        String s1 = "Some_value";
-//        assertFalse(f1.equals(s1));
+    public void testFeetToYardEquality_EquivalentValue(){
+        Length L1 = new Length(3.0, Length.LengthUnit.FEET);
+        Length L2 = new Length(1.0, Length.LengthUnit.YARDS);
+        assertEquals(L1, L2);
     }
 
     @Test

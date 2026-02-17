@@ -67,11 +67,32 @@ public class QuantityMeasurementAppTest {
         Length L2 = new Length(1.0, Length.LengthUnit.FEET);
         assertNotEquals(L1, L2);
     }
-//10,11
+
     @Test
     public void testEquality_YardWithNullUnit(){
-        Length L1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
-        Length L2 = new Length(1.0, Length.LengthUnit.FEET);
-        assertNotEquals(L1, L2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            new Length(1.0, null);
+        });
     }
+
+    @Test
+    public void testEquality_YardSameReference(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        Length L2 = L1;
+        assertTrue(L1.equals(L2));
+    }
+
+    @Test
+    public void testEquality_YardNullComparison(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        assertNotNull(L1);
+    }
+
+    @Test
+    public void testEquality_CentimetersSameReference(){
+        Length L1 = new Length(1.0, Length.LengthUnit.CENTIMETERS);
+        Length L2 = L1;
+        assertTrue(L1.equals(L2));
+    }
+    //10, 17
 }

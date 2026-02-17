@@ -7,12 +7,12 @@ public class QuantityMeasurementApp{
     public static void demonstrateYardFeetEquality(){
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter first value: ");
+        System.out.print("Enter first value : ");
         double value1 = scanner.nextDouble();
         System.out.print("Enter Unit : ");
         String unit1 = scanner.next().toUpperCase();
 
-        System.out.print("Enter second value: ");
+        System.out.print("Enter second value : ");
         double value2 = scanner.nextDouble();
         System.out.print("Enter Unit : ");
         String unit2 = scanner.next().toUpperCase();
@@ -25,12 +25,12 @@ public class QuantityMeasurementApp{
 
     public static void demonstrateYardInchesEquality(){
         Scanner sc = new Scanner(System.in);
-        System.out.print("Enter first value: ");
+        System.out.print("Enter first value : ");
         double value1 = sc.nextDouble();
         System.out.print("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter second value: ");
+        System.out.print("Enter second value : ");
         double value2 = sc.nextDouble();
         System.out.print("Enter Unit : ");
         String unit2 = sc.next().toUpperCase();
@@ -44,12 +44,12 @@ public class QuantityMeasurementApp{
     public static void demonstrateYardEquality(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter first value: ");
+        System.out.print("Enter first value : ");
         double value1 = sc.nextDouble();
-        System.out.print("Enter Unit :");
+        System.out.print("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter second value: ");
+        System.out.print("Enter second value : ");
         double value2 = sc.nextDouble();
         System.out.print("Enter Unit : ");
         String unit2 = sc.next().toUpperCase();
@@ -63,12 +63,12 @@ public class QuantityMeasurementApp{
     public static void demonstrateCentimetersEquality(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter first value: ");
+        System.out.print("Enter first value : ");
         double value1 = sc.nextDouble();
-        System.out.print("Enter Unit :");
+        System.out.print("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter second value: ");
+        System.out.print("Enter second value : ");
         double value2 = sc.nextDouble();
         System.out.print("Enter Unit : ");
         String unit2 = sc.next().toUpperCase();
@@ -82,12 +82,12 @@ public class QuantityMeasurementApp{
     public static void demonstrateCMSInchesEquality(){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter first value: ");
+        System.out.print("Enter first value : ");
         double value1 = sc.nextDouble();
-        System.out.print("Enter Unit :");
+        System.out.print("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter second value: ");
+        System.out.print("Enter second value : ");
         double value2 = sc.nextDouble();
         System.out.print("Enter Unit : ");
         String unit2 = sc.next().toUpperCase();

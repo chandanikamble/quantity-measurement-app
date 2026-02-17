@@ -23,6 +23,9 @@ public class Length {
 
     public Length(double value, LengthUnit unit){
         this.value = value;
+        if(unit == null){
+            throw new IllegalArgumentException("Unit cannot be null");
+        }
         this.unit = unit;
     }
 

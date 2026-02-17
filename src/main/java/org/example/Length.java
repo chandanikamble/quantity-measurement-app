@@ -37,11 +37,13 @@ public class Length {
         return convert(this.value, this.unit, targetUnit);
     }
 
-    //    // Static conversion method (as required)
     public static double convert(double value,
                                  LengthUnit sourceUnit,
                                  LengthUnit targetUnit) {
 
+//        if(Double.isNaN(value)){
+//            throw new IllegalArgumentException("Value cannot be NaN");
+//        }
         if (!Double.isFinite(value)) {
             throw new IllegalArgumentException("Value must be finite.");
         }
@@ -49,13 +51,10 @@ public class Length {
             throw new IllegalArgumentException("Units cannot be null.");
         }
 
-        // Convert to base unit (INCHES)
         double valueInBase = value * sourceUnit.getConversionFactor();
 
-        // Convert to target
         double result = valueInBase / targetUnit.getConversionFactor();
 
-        // Optional rounding (4 decimal places)
         return Math.round(result * 10000.0) / 10000.0;
     }
 
@@ -79,20 +78,4 @@ public class Length {
         return Double.compare(this.toBase(), other.toBase()) == 0;
     }
 
-
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) return true;
-//        if (!(obj instanceof Length)) return false;
-//
-//        Length other = (Length) obj;
-//
-//        return Double.compare(this.toBase(), other.toBase()) == 0;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Double.hashCode(toBase());
-//    }
 }

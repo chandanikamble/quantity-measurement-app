@@ -1,76 +1,78 @@
-//import org.example.QuantityMeasurementApp;
-//import org.junit.Test;
-//
-//import static org.junit.jupiter.api.Assertions.*;
-//
-//public class QuantityMeasurementAppTest {
-//    @Test
-//    public void testFeetEquality_SameValue(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(1.0);
-//        assertEquals(f1, f2);
-//    }
-//
-//    @Test
-//    public void testFeetEquality_DifferentValue(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = new QuantityMeasurementApp.Feet(2.0);
-//        assertNotEquals(f1, f2);
-//    }
-//
-//    @Test
-//    public void testFeetEquality_NullComparison(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = null;
-//        assertFalse(f1.equals(f2), "The value should not be null");
-//    }
-//
-//    @Test
-//    public void testFeetEquality_DifferentClass(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        String s1 = "Some_value";
-//        assertFalse(f1.equals(s1));
-//    }
-//
-//    @Test
-//    public void testFeetEquality_SameReference(){
-//        QuantityMeasurementApp.Feet f1 = new QuantityMeasurementApp.Feet(1.0);
-//        QuantityMeasurementApp.Feet f2 = f1;
-//        assertTrue(f1.equals(f2));
-//    }
-//
-//    @Test
-//    public void testInchesEquality_SameValue(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = new QuantityMeasurementApp.Inches(1.0);
-//        assertEquals(i1, i2);
-//    }
-//
-//    @Test
-//    public void testInchesEquality_DifferentValue(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = new QuantityMeasurementApp.Inches(2.0);
-//        assertNotEquals(i1, i2);
-//    }
-//
-//    @Test
-//    public void testInchesEquality_NullComparison(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = null;
-//        assertFalse(i1.equals(i2), "The value should not be null");
-//    }
-//
-//    @Test
-//    public void testInchesEquality_DifferentClass(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        String s1 = "Some_value";
-//        assertFalse(i1.equals(s1));
-//    }
-//
-//    @Test
-//    public void testInchesEquality_SameReference(){
-//        QuantityMeasurementApp.Inches i1 = new QuantityMeasurementApp.Inches(1.0);
-//        QuantityMeasurementApp.Inches i2 = i1;
-//        assertTrue(i1.equals(i2));
-//    }
-//}
+import org.example.Length;
+import org.example.QuantityMeasurementApp;
+import org.junit.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+public class QuantityMeasurementAppTest {
+    @Test
+    public void testConversion_FeetToInches(){
+        Length L1 = new Length(1.0, Length.LengthUnit.FEET);
+        L1.convertTo(Length.LengthUnit.INCHES);
+        assertEquals(12.0, 12.0);
+    }
+
+    @Test
+    public void testConversion_InchesToFeet(){
+        Length L1 = new Length(24.0, Length.LengthUnit.INCHES);
+        L1.convertTo(Length.LengthUnit.FEET);
+        assertEquals(2.0, 2.0);
+    }
+
+    @Test
+    public void testConversion_YardsToInches(){
+        Length L1 = new Length(1.0, Length.LengthUnit.YARDS);
+        L1.convertTo(Length.LengthUnit.INCHES);
+        assertEquals(36.0, 36.0);
+    }
+
+    @Test
+    public void testConversion_InchesToYards(){
+        Length L1 = new Length(72.0, Length.LengthUnit.INCHES);
+        L1.convertTo(Length.LengthUnit.YARDS);
+        assertEquals(2.0, 2.0);
+    }
+
+    @Test
+    public void testConversion_testCentimetersToInches(){
+        Length L1 = new Length(2.54, Length.LengthUnit.CENTIMETERS);
+        L1.convertTo(Length.LengthUnit.INCHES);
+        assertEquals(1.0, 1.0);
+    }
+
+    @Test
+    public void testConversion_testInchesEquality_FeetToYard(){
+        Length L1 = new Length(6.0, Length.LengthUnit.FEET);
+        L1.convertTo(Length.LengthUnit.YARDS);
+        assertEquals(2.0, 2.0);
+    }
+
+    @Test
+    public void testInchesEquality_ZeroValue(){
+        Length L1 = new Length(0.0, Length.LengthUnit.FEET);
+        L1.convertTo(Length.LengthUnit.INCHES);
+        assertEquals(0.0, 0.0);
+    }
+
+    @Test
+    public void testConversion_NegativeValue(){
+        Length L1 = new Length(-1.0, Length.LengthUnit.FEET);
+        L1.convertTo(Length.LengthUnit.INCHES);
+        assertEquals(-12.0, -12.0);
+    }
+
+    @Test
+    public void testConversion_InvalidUnit_Throws(){
+        assertThrows(IllegalArgumentException.class, ()->{
+            new Length(1.0, null);
+        });
+    }
+
+    @Test
+    public void testConversion_NanOrInfinite_Throws(){
+        IllegalArgumentException err = assertThrows(IllegalArgumentException.class, ()->{
+            new Length(Double.NaN, Length.LengthUnit.FEET);
+        });
+
+    }
+}

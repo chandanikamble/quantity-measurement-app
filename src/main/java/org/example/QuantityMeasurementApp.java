@@ -14,24 +14,23 @@ public class QuantityMeasurementApp{
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter value : ");
-        double value = sc.nextDouble();
+        System.out.print("Enter First value : ");
+        double value1 = sc.nextDouble();
 
         System.out.print("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter Target Unit : ");
+        System.out.print("Enter Second value: ");
+        double value2 = sc.nextDouble();
+
+        System.out.print("Enter Unit : ");
         String unit2 = sc.next().toUpperCase();
 
-        Length.LengthUnit sourceUnit = Length.LengthUnit.valueOf(unit1);
-        Length.LengthUnit targetUnit = Length.LengthUnit.valueOf(unit2);
+        Length length1 = new Length(value1, Length.LengthUnit.valueOf(unit1));
+        Length length2 = new Length(value2, Length.LengthUnit.valueOf(unit2));
 
-        Length length = new Length(value, sourceUnit);
-
-        double result = length.convertTo(targetUnit);
-//        double result = Length.convert(value, sourceUnit, targetUnit);
-
-        System.out.println("Converted value: " + result + " " + targetUnit);
+        Length result = Length.add(length1, length2);
+        System.out.println("Converted value: " + result);
     }
 }
 

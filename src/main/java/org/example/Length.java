@@ -22,41 +22,32 @@ public class Length {
     }
 
     public Length(double value, LengthUnit unit){
-        if (!Double.isFinite(value)) {
-            throw new IllegalArgumentException("Value must be a finite number.");
-        }
-        if (unit == null) {
-            throw new IllegalArgumentException("Unit cannot be null.");
-        }
-
         this.value = value;
         this.unit = unit;
     }
 
-    public double convertTo(LengthUnit targetUnit) {
-        return convert(this.value, this.unit, targetUnit);
-    }
-
-    //    // Static conversion method (as required)
-    public static double convert(double value,
-                                 LengthUnit sourceUnit,
-                                 LengthUnit targetUnit) {
-
-        if (!Double.isFinite(value)) {
+    public static Length add(Length l1, Length l2){
+        if (!Double.isFinite(l1.value) || !Double.isFinite(l2.value)) {
             throw new IllegalArgumentException("Value must be finite.");
         }
-        if (sourceUnit == null || targetUnit == null) {
+        if (l1.unit == null || l2.unit == null) {
             throw new IllegalArgumentException("Units cannot be null.");
         }
 
-        // Convert to base unit (INCHES)
-        double valueInBase = value * sourceUnit.getConversionFactor();
+        double sum = l1.toBase() + l2.toBase();
+
+        return convert(sum, l1.unit);
+    }
+
+
+    // Static conversion method (as required)
+    public static Length convert(double valueInBase, LengthUnit targetUnit) {
 
         // Convert to target
         double result = valueInBase / targetUnit.getConversionFactor();
 
-        // Optional rounding (4 decimal places)
-        return Math.round(result * 10000.0) / 10000.0;
+//        return Math.round(result * 10000.0) / 10000.0;
+        return new Length(result, targetUnit);
     }
 
     // Convert current value to base (INCHES)
@@ -78,21 +69,4 @@ public class Length {
 
         return Double.compare(this.toBase(), other.toBase()) == 0;
     }
-
-
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) return true;
-//        if (!(obj instanceof Length)) return false;
-//
-//        Length other = (Length) obj;
-//
-//        return Double.compare(this.toBase(), other.toBase()) == 0;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Double.hashCode(toBase());
-//    }
 }

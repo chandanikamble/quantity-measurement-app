@@ -35,19 +35,16 @@ public class Length {
         }
 
         double sum = l1.toBase() + l2.toBase();
-
-        return convert(sum, l1.unit);
+        double convertedValue =  convert(sum, l1.unit);
+        return new Length(convertedValue, l1.unit);
     }
 
-
-    // Static conversion method (as required)
-    public static Length convert(double valueInBase, LengthUnit targetUnit) {
+    public static double convert(double valueInBase, LengthUnit targetUnit) {
 
         // Convert to target
         double result = valueInBase / targetUnit.getConversionFactor();
 
-//        return Math.round(result * 10000.0) / 10000.0;
-        return new Length(result, targetUnit);
+        return Math.round(result * 10000.0) / 10000.0;
     }
 
     // Convert current value to base (INCHES)
@@ -57,16 +54,17 @@ public class Length {
 
     @Override()
     public boolean equals(Object obj){
-        if(this == obj){
-            return true;
-        }
-
+        if(this == obj){ return true; }
         if(obj == null || this.getClass() != obj.getClass()){
             return false;
         }
 
         Length other = (Length) obj;
-
         return Double.compare(this.toBase(), other.toBase()) == 0;
+    }
+
+    @Override
+    public String toString() {
+        return value + " " + unit;
     }
 }

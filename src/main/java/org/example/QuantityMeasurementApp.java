@@ -4,13 +4,6 @@ import java.util.Scanner;
 
 public class QuantityMeasurementApp{
 
-    public static void demonstrateFeetInchesComparison(){
-//        Length feet = new Length(3.0, Length.LengthUnit.FEET);
-//        Length inches = new Length(24.0, Length.LengthUnit.INCHES);
-//        boolean result = feet.equals(inches);
-//        System.out.println("Are Lengths equals :" + result);
-    }
-
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 

@@ -107,10 +107,10 @@ public class QuantityMeasurementAppTest {
 
     @Test
     public void testAddition_SmallValues(){
-        Length l1 = new Length(0.001, Length.LengthUnit.FEET);
+        Length l1 = new Length(0.002, Length.LengthUnit.FEET);
         Length l2 = new Length(0.002, Length.LengthUnit.FEET);
         Length actual = Length.add(l1, l2);
-        Length expected = new Length(0.003, Length.LengthUnit.FEET);
+        Length expected = new Length(0.004, Length.LengthUnit.FEET);
         assertEquals(expected, actual);
     }
 }

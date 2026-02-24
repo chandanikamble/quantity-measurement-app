@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Objects;
+
 public class Length {
     private double value;
     private LengthUnit unit;
@@ -41,9 +43,6 @@ public class Length {
                                  LengthUnit sourceUnit,
                                  LengthUnit targetUnit) {
 
-//        if(Double.isNaN(value)){
-//            throw new IllegalArgumentException("Value cannot be NaN");
-//        }
         if (!Double.isFinite(value)) {
             throw new IllegalArgumentException("Value must be finite.");
         }
@@ -52,9 +51,7 @@ public class Length {
         }
 
         double valueInBase = value * sourceUnit.getConversionFactor();
-
         double result = valueInBase / targetUnit.getConversionFactor();
-
         return Math.round(result * 10000.0) / 10000.0;
     }
 
@@ -68,14 +65,17 @@ public class Length {
         if(this == obj){
             return true;
         }
-
         if(obj == null || this.getClass() != obj.getClass()){
             return false;
         }
 
         Length other = (Length) obj;
-
         return Double.compare(this.toBase(), other.toBase()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash();
     }
 
 }

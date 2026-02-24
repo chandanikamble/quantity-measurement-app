@@ -1,26 +1,21 @@
 package org.example;
 
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class QuantityMeasurementApp{
-
-    public static void demonstrateFeetInchesComparison(){
-//        Length feet = new Length(3.0, Length.LengthUnit.FEET);
-//        Length inches = new Length(24.0, Length.LengthUnit.INCHES);
-//        boolean result = feet.equals(inches);
-//        System.out.println("Are Lengths equals :" + result);
-    }
+    private static final Logger logger = Logger.getLogger(QuantityMeasurementApp.class.getName());
 
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter value : ");
+        logger.info("Enter value : ");
         double value = sc.nextDouble();
 
-        System.out.print("Enter Unit : ");
+        logger.info("Enter Unit : ");
         String unit1 = sc.next().toUpperCase();
 
-        System.out.print("Enter Target Unit : ");
+        logger.info("Enter Target Unit : ");
         String unit2 = sc.next().toUpperCase();
 
         Length.LengthUnit sourceUnit = Length.LengthUnit.valueOf(unit1);
@@ -29,8 +24,6 @@ public class QuantityMeasurementApp{
         Length length = new Length(value, sourceUnit);
 
         double result = length.convertTo(targetUnit);
-//        double result = Length.convert(value, sourceUnit, targetUnit);
-
-        System.out.println("Converted value: " + result + " " + targetUnit);
+        logger.info("Converted value: " + result + " " + targetUnit);
     }
 }
